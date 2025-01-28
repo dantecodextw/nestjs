@@ -159,5 +159,3 @@ export class TodoController {
 *A: No, but it’s recommended. TypeScript acts like a spell-checker for your code, catching errors early.*  
 
 ---
-
-This version uses **analogies** (receptionists, chefs, toolboxes) and **minimal jargon** to make concepts stick. Use these explanations during your session to keep things relatable! 🚀
