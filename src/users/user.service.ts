@@ -1,17 +1,17 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, ValidationPipe } from "@nestjs/common";
+import { CreateUserDto } from "./dtos/create-user.dto";
+import User from "./interface/user.interface";
 
-const usersList = [
-    { name: "Anshul", age: 21 },
-    { name: "Aniket", age: 22 },
-]
+
+const usersList: User[] = []
 
 @Injectable()
 export class UserService {
-    getUserList(name: string): Array<{ name: string, age: number }> {
+    getUserList(name: string): User[] {
         return name ? usersList.filter(data => (data.name).toLowerCase() === name.toLowerCase()) : usersList
     }
 
-    createUser(body: { name: string, age: number }): object {
+    createUser(body: CreateUserDto): User {
         const num = usersList.push(body)
         return usersList[num - 1]
     }

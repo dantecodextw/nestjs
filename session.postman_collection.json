@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "af1d51f2-546e-4fc2-82d9-642abc83de58",
+		"name": "session",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41182395"
+	},
+	"item": [
+		{
+			"name": "nestjs",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "create user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"anshul\",\n    \"age\": 21,\n    \"gender\": \"male\",\n    \"isMarried\": false,\n    \"stack\": \"Node\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:2000/user"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
