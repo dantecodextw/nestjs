@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
 import { UserService } from "./user.service";
 
 @Controller('user')
@@ -6,11 +6,9 @@ export class userController {
     constructor(private readonly userService: UserService) { }
 
     @Get()
-    getUserList(@Query() query: string): Array<{ name: string, age: number }> {
-        // return this.userService.getUserList(name)
-        console.log(query);
-
-        return [{ name: "asnhul", age: 20 }]
+    getUserList(@Query() hello: { name?: string }): Array<{ name: string, age: number }> {
+        const { name } = hello
+        return this.userService.getUserList(name);
     }
 
     @Post()
@@ -18,7 +16,15 @@ export class userController {
         return this.userService.createUser(body)
     }
 
-    @Patch(':name')
+    // @Patch(':name')
+    // updateUser(
+    //     @Param('name') name: string,
+    //     @Body() body: { name?: string, age?: number }
+    // ): object {
+    //     return this.userService.updateUser(name, body)
+    // }
+
+    @Put(':name')
     updateUser(
         @Param('name') name: string,
         @Body() body: { name?: string, age?: number }
